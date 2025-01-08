@@ -1,2 +1,2 @@
-import './1-gallery';
-import './2-form';
+import './1-gallery.js';
+import './2-form.js';
