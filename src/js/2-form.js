@@ -40,7 +40,7 @@ const onFeedbackFormSubmit = event => {
     event.preventDefault();
 
     if(formEl.elements.email.value.trim() === "" || formEl.elements.message.value.trim() === "") {
-        alert('add information all field for form');
+        alert('All form fields must be filled in');
         return;
     }
 
