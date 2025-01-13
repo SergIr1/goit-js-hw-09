@@ -7,12 +7,12 @@ let formData = {
 
 const fillFormFields = () => {
     try {
-        if (localStorage.length === 0) {
-            return;
-        };
-
         const formDataFormLS = JSON.parse(localStorage.getItem('feedback-form-state'));
 
+                if (formDataFormLS === null) {
+            return;
+        };
+        
         formData = formDataFormLS;
 
         for (const key in formDataFormLS) {
@@ -33,7 +33,11 @@ const onFormFieldInput = event => {
 
     formData[fieldName] = fieldValue;
 
-    localStorage.setItem("feedback-form-state", JSON.stringify(formData));
+    try {
+        localStorage.setItem("feedback-form-state", JSON.stringify(formData));
+    } catch (err) {
+        console.log(err)
+    };
 }
 
 const onFeedbackFormSubmit = event => {
